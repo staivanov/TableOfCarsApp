@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+    </div>
+    <div class="span10">
+      <table class="table" *ngIf="cars.length">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>In Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{car.id}}.</td>
+            <td>{{car.brand}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.year | date: 'YYYY'}}</td>
+            <td>{{car.price | currency:'EUR':'symbol':'1.0-0'}}</td>
+            <td>{{car.inStock}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
