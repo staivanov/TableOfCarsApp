@@ -77,8 +77,8 @@ export class CarsListComponent {
   executeFilter(filteredBy: string): Car[] {
     filteredBy = filteredBy.toLowerCase();
 
-    return this.cars.filter((car: Car) => {
-      car.brand.toLowerCase().includes(filteredBy);
-    });
+    return this.cars.filter((car: Car) => 
+      car.brand.toLowerCase().includes(filteredBy)
+    );
   }
 }
