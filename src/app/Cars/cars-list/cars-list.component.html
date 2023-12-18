@@ -4,25 +4,34 @@
       <!--Sidebar content-->
     </div>
     <div class="span10">
+      <div class="col-md-2">
+        <span>Filter by: </span>
+      </div>
+      <div class="col-md-4">
+        <input type='text' [(ngModel)]='filterBy'>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="showPrice()">
+        {{isPriceHidden ? 'Hide' : 'Show'}} price
+      </button>
       <table class="table" *ngIf="cars.length">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Year</th>
-            <th>Price</th>
-            <th>In Stock</th>
+            <th scope="col">#</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Year</th>
+            <th *ngIf="isPriceHidden" scope="col">Price</th>
+            <th scope="col">In Stock</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let car of cars">
+          <tr scope="col" *ngFor="let car of filteredCars">
             <td>{{car.id}}.</td>
             <td>{{car.brand}}</td>
             <td>{{car.model}}</td>
             <td>{{car.year | date: 'YYYY'}}</td>
-            <td>{{car.price | currency:'EUR':'symbol':'1.0-0'}}</td>
-            <td>{{car.inStock}}</td>
+            <td *ngIf="isPriceHidden">{{car.price | currency:'EUR':'symbol':'1.0-0'}}</td>
+            <td>{{car.inStock | yesOrNo}}</td>
           </tr>
         </tbody>
       </table>
