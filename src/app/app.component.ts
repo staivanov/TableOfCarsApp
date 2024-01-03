@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CarsListComponent } from "./Cars/cars-list/cars-list.component";
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { CarsListComponent } from "./Cars/cars-list/cars-list.component";
     CommonModule,
     RouterOutlet,
     CarsListComponent,
+
   ],
   
 })

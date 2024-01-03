@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Car } from "../models/Car";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, catchError, throwError } from "rxjs";
 
 
 @Injectable({
@@ -7,42 +9,30 @@ import { Car } from "../models/Car";
 })
 export class CarsService {
 
-    getCars(): Car[] {
-       let cars =  [
-            {
-                id: 1,
-                brand: 'Ford',
-                model: 'Mondeo',
-                year: new Date(2023),
-                price: 30000,
-                inStock: true
-            },
-            {
-                id: 2,
-                brand: 'Ford',
-                model: 'Focus',
-                year: new Date(2004),
-                price: 300,
-                inStock: false
-            },
-            {
-                id: 3,
-                brand: 'BMW',
-                model: 'M3',
-                year: new Date(2011),
-                price: 15000,
-                inStock: true
-            },
-            {
-                id: 4,
-                brand: 'Audi',
-                model: 'A6',
-                year: new Date(2023),
-                price: 65000,
-                inStock: true
-            }
-        ];
+    private carsUrl = 'assets/api/cars.json';
 
+    constructor(private httpClient: HttpClient) {
+    }
+
+
+    getCars(): Observable<Car[]> {
+        let cars = this.httpClient.get<Car[]>(this.carsUrl)
+        .pipe(catchError(this.handleError));
         return cars;
+    }
+
+
+    private handleError(error: HttpErrorResponse) {
+       
+        let errMessage: string;
+
+        if(error instanceof ErrorEvent){
+            errMessage = `An error is ${error}`;
+        }
+        else {
+            errMessage = `Return code is ${error.status}`;
+        }
+
+        return throwError(() => errMessage);
     }
 }
