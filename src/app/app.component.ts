@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { CarsListComponent } from "./Cars/cars-list/cars-list.component";
-import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -12,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
   imports: [
     CommonModule,
+    RouterModule,
     RouterOutlet,
     CarsListComponent,
 
@@ -19,5 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
   
 })
 export class AppComponent {
+  pageTitlte: string = 'Table of Cars'
   
 }

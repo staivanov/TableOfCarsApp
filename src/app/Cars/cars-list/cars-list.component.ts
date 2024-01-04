@@ -7,7 +7,7 @@ import { Observable, Observer, Subscriber, Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-cars-list',
+  selector: 'cars-list',
   standalone: true,
   imports: [
     SharedModule,

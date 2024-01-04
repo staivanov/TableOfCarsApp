@@ -1,1 +1,15 @@
-<app-cars-list></app-cars-list>
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand">{{pageTitlte}}</a>
+    <ul class="nav navbar-nav">
+        <li>
+            <a class="nav-link" [routerLink]="['welcome']">Welcome</a>
+        </li>
+        <li>
+            <a class="nav-link" [routerLink]="['car-list']">Car list</a>
+        </li>
+    </ul>
+</nav>
+
+<router-outlet>
+
+</router-outlet>
