@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CarsService } from './cars.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,12 +14,13 @@ import { CarsService } from './cars.service';
     CommonModule,
     HttpClientModule,
     FormsModule,
-
+    RouterModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
     CarsService

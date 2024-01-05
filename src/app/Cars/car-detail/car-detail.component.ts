@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'car-detail',
@@ -13,12 +14,14 @@ export class CarDetailComponent implements OnInit{
 
   pageTitle: string = "Car detail";
 
-  constructor() {
+  constructor(private router: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    const id = Number(this.router.snapshot.paramMap.get('id'));
+    this.pageTitle += ` ${id}`;
+
   }
 
 

@@ -27,7 +27,11 @@
         <tbody>
           <tr scope="col" *ngFor="let car of filteredCars">
             <td>{{car.id}}.</td>
-            <td>{{car.brand}}</td>
+            <td>
+              <a [routerLink]="['/car-detail', car.id]">
+              {{car.brand}}
+            </a>
+            </td>
             <td>{{car.model}}</td>
             <td>{{car.year | date: 'YYYY'}}</td>
             <td *ngIf="isPriceHidden">{{car.price | currency:'EUR':'symbol':'1.0-0'}}</td>
