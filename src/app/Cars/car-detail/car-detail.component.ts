@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'car-detail',
@@ -9,22 +10,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './car-detail.component.css'
 })
 
-export class CarDetailComponent implements OnInit{
-
+export class CarDetailComponent implements OnInit {
 
   pageTitle: string = "Car detail";
 
-  constructor(private router: ActivatedRoute) {
-
+  constructor(private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
-    const id = Number(this.router.snapshot.paramMap.get('id'));
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.pageTitle += ` ${id}`;
 
   }
 
-
-
+  onBack(): void {
+    this.router.navigate(['/cars-list']);
+  }
 
 }
