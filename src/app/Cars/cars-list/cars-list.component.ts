@@ -3,7 +3,7 @@ import { Car } from '../../models/Car';
 import { YesOrNoPipe } from '../../shared/yes-or-no.pipe';
 import { CarsService } from '../../shared/cars.service';
 import { SharedModule } from '../../shared/shared.module';
-import { Observable, Observer, Subscriber, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 
 @Component({

@@ -14,7 +14,6 @@ import { CarsListComponent } from "./Cars/cars-list/cars-list.component";
     RouterModule,
     RouterOutlet,
     CarsListComponent,
-
   ],
   
 })

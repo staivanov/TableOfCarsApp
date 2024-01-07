@@ -18,14 +18,14 @@ export class CarDetailComponent implements OnInit {
     private router: Router) {
   }
 
+  
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.pageTitle += ` ${id}`;
-
   }
+
 
   onBack(): void {
     this.router.navigate(['/cars-list']);
   }
-
 }
